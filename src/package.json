@@ -1,0 +1,19 @@
+{
+  "name": "sms-ru-gateway-simulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "beanstalkd": "^2.2.5",
+    "express": "^4.18.1",
+    "fivebeans": "^1.5.0",
+    "redis": "^4.3.0",
+    "uuid": "^8.3.2"
+  }
+}
