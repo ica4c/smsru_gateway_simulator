@@ -20,7 +20,7 @@ router.get('/sms/send', (req, res) => {
         message = req.query.msg || '';
 
     for(let to of phones) {
-        const sms = new SMS(to, message, 'usedesk'),
+        const sms = new SMS(to, message, 'someone'),
             weight = Math.floor(100 * Math.random()) + 1;
 
         let outcome;
