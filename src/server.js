@@ -21,11 +21,11 @@ router.get('/sms/send', (req, res) => {
 
     for(let to of phones) {
         const sms = new SMS(to, message, 'usedesk'),
-            weight = Math.floor(50 * Math.random()) + 1;
+            weight = Math.floor(100 * Math.random()) + 1;
 
         let outcome;
 
-        if(weight > 30) {
+        if(weight > 50) {
             outcome = sms.succeed();
         } else if(weight > 10) {
             outcome = sms.queue();
