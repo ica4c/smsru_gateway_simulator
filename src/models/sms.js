@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 const { codes } = require('./status');
 const SmsStatusResponse = require("./smsStatusResponse");
+const SmsSendResponse = require("./smsSendResponse");
 
 class SMS {
     constructor(to, message, from = null, id = null) {
@@ -28,19 +29,19 @@ class SMS {
     }
 
     succeed() {
-        return new SmsStatusResponse(this.to, codes.message_sent);
+        return new SmsSendResponse(this.to, codes.message_sent);
     }
 
     failWithRandomStatus() {
         const codeValues = Object.values(codes);
         const status = codeValues[Math.floor(codeValues.length * Math.random()) + 1];
-        return new SmsStatusResponse(this.to, status);
+        return new SmsSendResponse(this.to, status);
     }
 
     queue() {
         const queueStatuses = [codes.message_queued, codes.message_sending];
         const status = queueStatuses[Math.floor(queueStatuses.length * Math.random()) + 1];
-        return new SmsStatusResponse(this.to, status);
+        return new SmsSendResponse(this.to, status);
     }
 }
 

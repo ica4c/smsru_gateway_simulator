@@ -1,6 +1,6 @@
 const {messages, codes} = require("./status");
 
-class SmsStatusResponse {
+class SmsSendResponse {
     constructor(id, statusCode = 100) {
         this._id = id;
         this._statusCode = statusCode;
@@ -24,13 +24,18 @@ class SmsStatusResponse {
     }
 
     toJson() {
-        return {
+        const payload = {
             status: this.status,
             status_code: this.code,
-            cost: Math.floor(10 * Math.random()) + Math.random(),
-            status_text: this.message
+            status_text: this.message,
+        };
+
+        if(this.status === 'OK') {
+            payload['sms_id'] = this.id;
         }
+
+        return payload;
     }
 }
 
-module.exports = SmsStatusResponse;
+module.exports = SmsSendResponse;
