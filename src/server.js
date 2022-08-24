@@ -61,8 +61,6 @@ router.get('/sms/status', (req, res) => {
     for(let id of ids) {
         const weight = Math.floor(100 * Math.random()) + 1;
 
-        console.log(weight);
-
         let outcome;
 
         if(weight > 50) {
