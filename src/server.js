@@ -25,9 +25,9 @@ router.get('/sms/send', (req, res) => {
 
         let outcome;
 
-        if(weight > 50) {
+        if(weight > 70) {
             outcome = sms.succeed();
-        } else if(weight > 10) {
+        } else if(weight > 50) {
             outcome = sms.queue();
         } else {
             outcome = sms.failWithRandomStatus();
